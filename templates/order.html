@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block tab %}
+<li class="nav-item">
+    <a class="nav-link" href="/main/{{company}}">Company</a>
+  </li>
+{% endblock tab %}
+{% block body %}
+  <div class="container">
+    <h1 class="mt-5">This is orders of {{company}}</h1> 
+
+    {% if allord|length==0 %}
+    <div class="alert alert-warning" role="alert">
+        No orders have been Placed!!
+      </div>
+    {% endif %}
+
+    {% for cust in customer %}
+        <div class="card">
+            <div class="card-body">
+                <h1>{{cust}}'s Order </h1>
+        <ul class="list-inline">
+            <li class="list-inline-item mx-5">Item</li>
+            <li class="list-inline-item mx-3">Number of Items</li>
+          </ul>
+        {% for order in allord %}
+        {% if order.custid==cust %}
+        
+             <dl class="row">
+                <dt class="col-sm-3">{{order.item}}</dt>
+                    <dd class="col-sm-9">
+                        <dl class="row">
+                        <dd class="col-sm-5">{{order.noi}}</dd>
+                        </dl>
+                    </dd>
+            </dl>
+            </div>
+        </div>
+        
+
+        {% endif %}
+           
+        {% endfor %}
+    {% endfor %}
+  </div>
+   
+    
+
+{% endblock body %}

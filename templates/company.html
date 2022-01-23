@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{company}}
+{% endblock title %}
+{% block tab %}
+<li class="nav-item">
+    <a class="nav-link" href="/main/{{company}}/order/{{cid}}">Orders</a>
+  </li>
+
+{% endblock tab %}
+{% block body %}
+    <h1 class="mt-5">Hello {{company}} admin </h1>
+    <div class="container">
+        <form action="/main/{{company}}" method="POST">
+            <div class="mb-3">
+              <label for="item" class="form-label">Item name</label>
+              <input type="text" class="form-control" id="item" name="item" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" name="category" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text-area" class="form-control" id="desc" name="desc" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="prize" class="form-label">Prize</label>
+                <input type="text" class="form-control" id="prize" name="prize" aria-describedby="emailHelp">
+              </div>  
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+    <div class="container">
+        {% if allmenus|length==0 %}
+        <div class="alert alert-info" role="alert">
+            No records Found. Insert records now.
+          </div>  
+          {% else %}
+          <h1>Menu </h1>
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Sl.No</th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Prize</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                  {% for menu in allmenus %}
+                  <tr>
+                      <th scope="row">{{loop.index}}</th>
+                      <td>{{menu.item}}</td>
+                      <td>{{menu.category}}</td>
+                      <td>{{menu.desc}}</td>
+                      <td>{{menu.prize}}</td>
+                      <td>
+                          <a href="/main/{{company}}/update/{{menu.sno}}" class="btn btn-sm btn-outline-dark">Update</a>
+                          <a href="/main/{{company}}/delete/{{menu.sno}}" class="btn btn-sm btn-outline-dark">Delete</a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+          
+        {% endif %}
+    </div>
+{% endblock body %}    

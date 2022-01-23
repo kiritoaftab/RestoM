@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock title %}
+<!-- 2cards --admin,user -->
+{% block body %}
+
+
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Admin Login</h5>
+              <p class="card-text">For Administartors of the Restaurants</p>
+              <a href="/admin" class="btn btn-primary">Go</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Customer Login</h5>
+              <p class="card-text">For Customers, Can't wait to serve you delicacies ;)</p>
+              <a href="/customer" class="btn btn-primary">Go</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock body %}

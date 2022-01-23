@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+    Register
+{% endblock title %}
+{% block body %}
+<div class="container my-5">
+    <form action="/register" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+            
+          </div>
+    
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Suggested:Use a Company Email</div>
+        </div>
+    
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp">
+            
+          </div>
+        
+          <div class="mb-3">
+            <label for="company" class="form-label">Company Name</label>
+            <input type="text" class="form-control" id="company" name="company" aria-describedby="emailHelp">
+            
+          </div>  
+    
+          <div class="mb-3">
+            <label for="branch" class="form-label">Branch</label>
+            <input type="text" class="form-control" id="branch" name="branch" aria-describedby="emailHelp">
+            
+          </div>
+    
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="text" class="form-control" id="password" name="password">
+          <div id="emailHelp" class="form-text">Suggested:Use a Genuine Password</div>
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+{% endblock body %}

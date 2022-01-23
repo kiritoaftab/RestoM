@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h1 class="my-5">Welcome, Customer</h1>
+    <div class="container">
+        <form action="/customer" method="POST">
+            <div class="mb-3">
+              <label for="cname" class="form-label">Name</label>
+              <input type="text" class="form-control" id="cname" name="cname" aria-describedby="emailHelp">
+              
+            </div>
+            <div class="mb-3">
+              <label for="company" class="form-label">Company</label>
+              <input type="text" class="form-control" id="company" name="company">
+            </div>
+            <div class="mb-3">
+                <label for="company" class="form-label">Branch</label>
+                <input type="text" class="form-control" id="branch" name="branch">
+              </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+    
+{% endblock body %}

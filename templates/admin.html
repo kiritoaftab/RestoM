@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+    Admin
+{% endblock title %}
+{% block body %}
+<div class="container"> 
+    <h1 class="my-5">Welcome Admin</h1>
+    <form action="/admin" method="POST">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Please enter the Registred Email</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <!-- <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div> -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+</div>   
+<div class="container mt-5">
+  {% if incorrectpassword %}
+  <div class="alert alert-danger" role="alert">
+    Invalid Credentials.
+  </div>
+  {% endif %}
+  
+</div>
+{% endblock body %}

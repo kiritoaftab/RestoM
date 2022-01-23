@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <h2 class="mt-5"> Your bill amount is {{bill}}</h2>
+<a href="/payment/{{custid}}/paid" class="btn btn-primary">Pay</a>
+<div class="alert alert-success mt-5" role="alert">
+    Thank you for using our Platform :)
+  </div>
+</div>
+
+  
+{% endblock body %}

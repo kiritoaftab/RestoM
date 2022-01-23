@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}
+    Menu
+{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+    <h1>Welcome to {{company}}'s {{branch}}</h1>
+    <h1 class="mb-5">MENU</h1>
+    <div class="row">
+        <!-- <div class="col-lg">
+            {% for cat in category  %}
+            <div class="card" style="width: 50rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{cat}}</h5>
+                  
+                </div>
+               
+                {% for item in menobj %}
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="width:5px">Sl.No</th>
+                        <th scope="col" style="width:20px">Item</th>
+                        <th scope="col" style="width: 50px;">Description</th>
+                        <th scope="col" style="width: 10px;">Prize</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>{{loop.index}}</td>
+                          <td>{{item.item}}</td>
+                          <td>{{item.desc}}</td>
+                          <td>{{item.prize}}</td>
+                        </tr> 
+                      </tbody>
+                    </table>
+                    
+              
+                {% endfor %}
+                
+                
+              </div>
+            {% endfor %}
+           
+        </div> -->
+        <div class="col-lg">
+            {% for cat in category %}
+            <h2 class="my-5">{{cat}}</h2>
+            {% for items in menobj  %}
+                {% if items.category==cat %}
+                <dl class="row">
+                    <dt class="col-sm-3">{{items.item}}</dt>
+                        <dd class="col-sm-9">
+                            <dl class="row">
+                            <dd class="col-sm-5">{{items.desc}}</dd>
+                            <dt class="col-sm-2">{{items.prize}} Rs</dt>
+                            <dd class="col"><a href="/customer/menu/{{custid}}/cart/{{items.sno}}/{{cid}}" class="btn btn-info">Add</a></dd>
+                            <dd class="col"><a href="/customer/menu/{{custid}}/remove/{{items.sno}}/{{cid}}" class="btn btn-info">Remove</a></dd>
+                            </dl>
+                            
+                        </dd>
+                        
+                </dl>
+        
+                {% endif %}
+            {% endfor %}
+            
+            {% endfor %}
+            
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h5 class="card-title">Cart</h5>
+              <ul class="list-inline">
+                <li class="list-inline-item">Item</li>
+                <li class="list-inline-item">Number of Items</li>
+              </ul>
+              {% if noitem %}
+              <div class="alert alert-secondary" role="alert">
+               No items selected!
+            </div>
+                   
+               {% else %}
+               {% for order in ordobj %}
+               <ul class="list-inline">
+                <li class="list-inline-item">{{order.item}}</li>
+                <li class="list-inline-item">{{order.noi}}</li>
+              </ul>
+              
+               {% endfor %}
+               
+              
+              {% endif %}
+              
+
+              <p class="card-text">Amount : {{bill}}</p>
+              
+              <a href="/payment/{{custid}}" class="btn btn-primary">Go</a>
+            </div>
+          </div>
+        </div>
+      
+  </div>
+{% endblock body %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{company}}
+{% endblock title %}
+{% block body %}
+            
+           <!-- Enter form -->
+      <div class="container mt-5">
+        <h1>Update TODO</h1>
+      <form action="/main/{{company}}/update/{{toupd.sno}}" method="POST">
+          <div class="mb-3">
+            <label for="item" class="form-label">Item</label>
+            <input type="text" class="form-control" name="item" value="{{toupd.item}}" id="item" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" class="form-control" value="{{toupd.category}}" name="category" id="category">
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">TODO Description</label>
+            <input type="text" class="form-control" value="{{toupd.desc}}" name="desc" id="desc">
+          </div>
+          <div class="mb-3">
+            <label for="prize" class="form-label">Prize</label>
+            <input type="text" class="form-control" value="{{toupd.prize}}" name="prize" id="prize">
+          </div>
+    
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+      
+            
+        {% endblock body %}
